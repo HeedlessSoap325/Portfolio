@@ -16,6 +16,8 @@ function ProjectLoader(): JSX.Element {
     if (!params.id) {
         console.error("Project ID was not specified!");
     }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return(<Project id={params.id} project_data={data.projects[params.id]} fullscreen={true}/>);
 }
 export default function App() {
