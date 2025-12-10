@@ -28,10 +28,10 @@ export default function App() {
                 <div id="main-content">
                     <Routes>
                         <Route path="/Portfolio/" element={<Home />} />
-                        <Route path="/Portfolio/projects" element={<Projects />} />
-                        <Route path="/Portfolio/about" element={<About />} />
-                        <Route path="/Portfolio/contact" element={<Contact />} />
-                        <Route path="/Portfolio/project/:id" element={<ProjectLoader />} />
+                        <Route path="/Portfolio/projects/" element={<Projects />} />
+                        <Route path="/Portfolio/about/" element={<About />} />
+                        <Route path="/Portfolio/contact/" element={<Contact />} />
+                        <Route path="/Portfolio/project/:id/" element={<ProjectLoader />} />
                     </Routes>
                 </div>
                 <Footer />
