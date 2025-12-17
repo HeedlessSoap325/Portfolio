@@ -8,8 +8,10 @@ import Projects from "./pages/Projects.tsx";
 import {Contact} from "./pages/Contact.tsx";
 import About from "./pages/About.tsx";
 import Project from "./components/Project.tsx";
-import {JSX} from "react";
+import {JSX, useState} from "react";
 import data from "./assets/projects.json";
+import {TranslationProvider} from "./scripts/lang/TranslationProvider.tsx";
+import {Language} from "./scripts/lang/translations.ts";
 
 function ProjectLoader(): JSX.Element {
     const params = useParams();
@@ -21,21 +23,25 @@ function ProjectLoader(): JSX.Element {
     return(<Project id={params.id} project_data={data.projects[params.id]} fullscreen={true}/>);
 }
 export default function App() {
+    const [language, setLanguage] = useState<Language>("de")
+
     return(
-        <BrowserRouter>
-            <div id="main-container">
-                <NavBar />
-                <div id="main-content">
-                    <Routes>
-                        <Route path="/Portfolio/" element={<Home />} />
-                        <Route path="/Portfolio/projects/" element={<Projects />} />
-                        <Route path="/Portfolio/about/" element={<About />} />
-                        <Route path="/Portfolio/contact/" element={<Contact />} />
-                        <Route path="/Portfolio/project/:id/" element={<ProjectLoader />} />
-                    </Routes>
+        <TranslationProvider language={language}>
+            <BrowserRouter>
+                <div id="main-container">
+                    <NavBar setLanguage={setLanguage} />
+                    <div id="main-content">
+                        <Routes>
+                            <Route path="/Portfolio/" element={<Home />} />
+                            <Route path="/Portfolio/projects/" element={<Projects />} />
+                            <Route path="/Portfolio/about/" element={<About />} />
+                            <Route path="/Portfolio/contact/" element={<Contact />} />
+                            <Route path="/Portfolio/project/:id/" element={<ProjectLoader />} />
+                        </Routes>
+                    </div>
+                    <Footer />
                 </div>
-                <Footer />
-            </div>
-        </BrowserRouter>
-    )
+            </BrowserRouter>
+        </TranslationProvider>
+    );
 }
