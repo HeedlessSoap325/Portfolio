@@ -1,5 +1,7 @@
 {
     "de": {
+        "de": "Deutsch",
+        "en": "English",
         "nav.about": "Über mich",
         "nav.contact": "Kontakt",
         "nav.projects": "Projekte",
@@ -27,6 +29,8 @@
         "about.language.french": "Französisch (Schulkenntnisse)"
     },
     "en": {
+        "de": "German",
+        "en": "English",
         "nav.about": "About Me",
         "nav.contact": "Contact Me",
         "nav.projects": "Projects",
