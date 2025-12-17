@@ -98,6 +98,8 @@ body {
     flex-wrap: wrap;
     gap: 1rem;
     padding: 1.5rem;
+    max-height: 80vh;
+    overflow: scroll;
 }
 
 /** Project Component, not in Fullscreen **/
