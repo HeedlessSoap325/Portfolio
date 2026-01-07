@@ -17,16 +17,30 @@ export default function NavBar({setLanguage}: {setLanguage: React.Dispatch<React
         }
         setLanguage("en");
     }
+
+    function toggleBurgerMenu(){
+        const navBar = document.getElementById("navBar-nav");
+        if (!navBar) return;
+        if (window.innerWidth >= 900) return;
+        if (navBar.style.display === "flex") {
+            navBar.style.display = "none";
+        } else {
+            navBar.style.display = "flex";
+        }
+    }
     return(
         <div id="navBar-container">
             <Link to="/Portfolio/" id="navBar-text">{translate("nav.home")}</Link>
+            <a id="navBar-icon" onClick={toggleBurgerMenu}>
+                <img src="./hamburger.png" alt="hamburger" loading="eager" fetchPriority="high"/>
+            </a>
             <nav id="navBar-nav">
                 <ul id="navBar-links">
-                    <li className="navbar-item"><Link className="navbar-link"
+                    <li className="navbar-item"><Link className="navbar-link" onClick={toggleBurgerMenu}
                                                       to="/Portfolio/projects">{translate("nav.projects")}</Link></li>
-                    <li className="navbar-item"><Link className="navbar-link"
+                    <li className="navbar-item"><Link className="navbar-link" onClick={toggleBurgerMenu}
                                                       to="/Portfolio/contact">{translate("nav.contact")}</Link></li>
-                    <li className="navbar-item"><Link className="navbar-link"
+                    <li className="navbar-item"><Link className="navbar-link" onClick={toggleBurgerMenu}
                                                       to="/Portfolio/about">{translate("nav.about")}</Link></li>
 
 
