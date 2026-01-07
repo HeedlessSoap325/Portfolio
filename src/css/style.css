@@ -18,8 +18,7 @@ body {
     min-height: 80vh;
 }
 
-/** NavBar Component **/
-
+/** NavBar.tsx Styling **/
 #navBar-container {
     width: 100%;
     padding-inline: 1.5rem;
@@ -85,8 +84,7 @@ body {
     font-size: xx-large;
 }
 
-/** Footer Component **/
-
+/** Footer.tsx Styling **/
 #footer-container {
     width: 100%;
     min-height: 10vh;
@@ -111,7 +109,7 @@ body {
     text-decoration: underline;
 }
 
-/** Home Component **/
+/** Home.tsx Styling **/
 #home-container {
     display: flex;
     flex-direction: column;
@@ -137,7 +135,7 @@ body {
     overflow: scroll;
 }
 
-/** Project Component, not in Fullscreen **/
+/** Project.tsx Styling (not Fullscreen) **/
 .project-cover {
     min-height: 40vh;
     max-height: 40vh;
@@ -178,10 +176,10 @@ body {
     margin: 0;
 }
 
-/** Project Component in Fullscreen **/
+/** Project.tsx Styling (Fullscreen) **/
 
 
-/** Contact Me Page **/
+/** Contact.tsx Styling **/
 #contact-container {
     display: flex;
     flex-direction: column;
@@ -230,7 +228,7 @@ body {
     color: #1b1b1b;
 }
 
-/** About Me Page **/
+/** About.tsx Styling **/
 #about-container {
     display: flex;
     flex-direction: column;
@@ -308,7 +306,6 @@ body {
 }
 
 @media (min-width: 900px) {
-    /*TODO: TEMP*/
     #navBar-container #navBar-nav {
         display: block;
     }
