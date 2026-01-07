@@ -205,6 +205,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    overflow-x: hidden;
 }
 
 #about-profile {
@@ -219,8 +220,8 @@ body {
 #about-info {
     margin-top: calc(150px - 30px - 10px);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* <-- KEY */
+    flex-direction: column;
+    gap: 1rem;
     width: 100vw;
     font-size: large;
     overflow: scroll;
@@ -228,11 +229,11 @@ body {
 
 #about-left,
 #about-right {
-    width: 50vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
     margin-inline: 2rem;
+    max-width: fit-content;
 }
 
 .about-header {
@@ -255,13 +256,18 @@ body {
 
 #about-languages {
     list-style: circle;
-    margin-top: 0.5rem
+    margin-top: 0.5rem;
+    max-width: fit-content;
 }
 
 #about-education-list {
     list-style: none;
     margin: 0;
     padding: 0;
+    max-width: calc(100vw - 2rem);
+}
+#about-education-list li {
+    margin-bottom: 1rem;
 }
 
 .about-education-item {
@@ -288,73 +294,15 @@ body {
 
 
     /*TODO: TEMP*/
-    #about-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    #about-profile {
-        width: 150px;
-        border-radius: 50%;
-        border: 10px solid white;
-        position: absolute;
-        top: calc(10vh - 40px);
-        z-index: 10;
-    }
-
     #about-info {
-        margin-top: calc(150px - 30px - 10px);
-        display: flex;
         flex-direction: row;
-        justify-content: space-between; /* <-- KEY */
-        width: 100vw;
-        font-size: large;
-        overflow: scroll;
+        justify-content: space-between;
+        gap: 0;
     }
 
     #about-left,
     #about-right {
         width: 50vw;
-        display: flex;
-        flex-direction: column;
         gap: 0.5rem;
-        margin-inline: 2rem;
-    }
-
-    .about-header {
-        font-size: x-large;
-        font-weight: bold;
-        margin: 0 0 1.5rem;
-        border-bottom: #a2a2a2 solid 1px;
-        width: fit-content;
-    }
-
-    #about-origin-link {
-        text-decoration: none;
-        color: black;
-    }
-
-    #about-birthday-link {
-        text-decoration: none;
-        color: black;
-    }
-
-    #about-languages {
-        list-style: circle;
-        margin-top: 0.5rem
-    }
-
-    #about-education-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    .about-education-item {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
     }
 }
