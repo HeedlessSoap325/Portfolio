@@ -4,7 +4,7 @@ export default function About(){
     const {translate} = useTranslation();
     return(
         <div id="about-container">
-            <img id="about-profile" alt="Profile picture" src="./profile.jpg"/>
+            <img id="about-profile" alt="Profile picture" src="./profile.jpg" loading="eager" fetchPriority="high"/>
             <div id="about-info">
                 <div id="about-left">
                     <h3 id="about-general" className="about-header">{translate("about.general")}</h3>

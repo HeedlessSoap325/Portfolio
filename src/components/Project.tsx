@@ -18,7 +18,7 @@ export default function Project({project_data, fullscreen = false, id} : {projec
     if (!fullscreen) {
         return(
             <div className="project-cover" onClick={() => onClickProject(id)}>
-                <img className="project-cover-img" src={project_data.cover_image} alt="test" />
+                <img className="project-cover-img" src={project_data.cover_image} alt="test" loading="eager" fetchPriority="high" />
                 <h4 className="project-cover-title">{project_data.cover_title}</h4>
                 <p className="project-cover-description">{project_data.cover_description}</p>
             </div>
