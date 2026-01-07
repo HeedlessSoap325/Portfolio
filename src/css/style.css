@@ -93,7 +93,9 @@ body {
 }
 
 #projects-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 290px));/**Project is min 290px wide**/
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
@@ -104,8 +106,6 @@ body {
 
 /** Project Component, not in Fullscreen **/
 .project-cover {
-    min-width: calc((100% - (3 * 1rem)) / 4);
-    max-width: calc((100% - (3 * 1rem)) / 4);
     min-height: 50vh;
     max-height: 50vh;
     background: #ffffff;
