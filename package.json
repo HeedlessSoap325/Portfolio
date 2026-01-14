@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
+    "deploy:ci": "gh-pages -d dist -r https://x-access-token:${GITHUB_TOKEN}@github.com/HeedlessSoap325/Portfolio.git",
     "lint": "eslint .",
     "preview": "vite preview"
   },
