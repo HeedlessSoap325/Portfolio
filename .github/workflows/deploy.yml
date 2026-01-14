@@ -39,4 +39,4 @@ jobs:
             - name: Smoke test GitHub Pages
               run: |
                   sleep 30
-                  curl -f https://<username>.github.io/<repo>
+                  curl -f https://HeedlessSoap325.github.io/Portfolio
