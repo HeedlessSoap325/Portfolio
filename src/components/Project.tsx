@@ -1,18 +1,22 @@
 import {projectData} from "../scripts/typedefs.ts";
 import onClickProject from "../scripts/events.ts";
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 
 export default function Project({project_data, fullscreen = false, id} : {project_data: projectData, fullscreen?: boolean, id: number}) {
+    const projectContainerRef = useRef<HTMLDivElement>(null);
+    const hasRun = useRef(false);
     function loadContent(){
+        if (!projectContainerRef.current) return;
         const content = document.createElement( "div" );
         content.innerHTML = project_data.content;
 
-        const container = document.getElementById("project-container");
-        container?.appendChild(content);
+        projectContainerRef.current.appendChild(content);
     }
 
     useEffect(() => {
+        if (hasRun.current) return;
         loadContent();
+        hasRun.current = true;
     }, []);
 
     if (!fullscreen) {
@@ -25,7 +29,7 @@ export default function Project({project_data, fullscreen = false, id} : {projec
         );
     }else {
         return (
-            <div id="project-container" className="project-fullscreen">
+            <div id="project-container" className="project-fullscreen" ref={projectContainerRef}>
                 <h4 className="project-fullscreen-title">{project_data.title}</h4>
             </div>
         );
