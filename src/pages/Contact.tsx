@@ -5,7 +5,7 @@ export function Contact(){
     return(
         <div id="contact-container">
             <h2 id="contact-title">{translate("contact.title")}</h2>
-            <span>
+            <span id="contact-content">
                 {translate("contact.content")}
             </span>
             <div className="section">
