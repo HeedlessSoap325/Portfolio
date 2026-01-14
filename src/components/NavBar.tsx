@@ -1,10 +1,11 @@
 import {Link} from "react-router-dom";
 import {availableLanguages, Language} from "../scripts/lang/translations.ts";
 import {useTranslation} from "../scripts/lang/TranslationProvider.tsx";
-import {ChangeEvent} from "react";
+import {ChangeEvent, useEffect, useState} from "react";
 
 export default function NavBar({setLanguage}: {setLanguage: React.Dispatch<React.SetStateAction<Language>>}) {
     const {translate} = useTranslation();
+    const [isDark, setIsDark] = useState(true);
 
     function changeLanguage(event: ChangeEvent<HTMLSelectElement>) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -28,6 +29,25 @@ export default function NavBar({setLanguage}: {setLanguage: React.Dispatch<React
             navBar.style.display = "flex";
         }
     }
+
+    async function setTheme(theme: "dark" | "light") {
+        setIsDark(theme === "dark");
+        localStorage.setItem("theme", theme);
+        document.documentElement.setAttribute("data-theme", theme);
+    }
+
+    useEffect(() => {
+        const theme = localStorage.getItem("theme");
+        if(theme !== null){
+            setIsDark(theme === "dark");
+            document.documentElement.setAttribute("data-theme", theme);
+        }else{
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            setIsDark(systemPrefersDark);
+            document.documentElement.setAttribute("data-theme", systemPrefersDark ? "dark" : "light");
+        }
+    }, [])
+
     return(
         <div id="navBar-container">
             <Link to="/Portfolio/" id="navBar-text">{translate("nav.home")}</Link>
@@ -50,6 +70,7 @@ export default function NavBar({setLanguage}: {setLanguage: React.Dispatch<React
                         ))}
                     </select>
 
+                    <input checked={isDark} type="checkbox" onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}/>
                 </ul>
             </nav>
         </div>
