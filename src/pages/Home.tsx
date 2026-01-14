@@ -6,7 +6,7 @@ export default function Home(): JSX.Element {
     return(
         <div id="home-container">
             <h2 id="home-introduction">{translate("home.title")}</h2>
-            <span>{translate("home.content")}</span>
+            <span id="home-content">{translate("home.content")}</span>
         </div>
     );
 }
